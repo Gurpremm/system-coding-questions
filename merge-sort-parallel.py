@@ -68,3 +68,27 @@ if __name__ == "__main__":
     print("Original array:", arr)
     merge_sort(arr)
     print("Sorted array:", arr)
+
+# we can further use thread pool to parallelise the exceution than just using a single thread for left and right half
+#something like this 
+#lock = threading.Lock()
+
+# def merge_sort(arr):
+#     with ThreadPoolExecutor(max_workers=4) as executor:
+#         merge_sort_helper(arr, 0, len(arr) - 1, executor)
+
+# def merge_sort_helper(arr, left, right, executor):
+#     if left < right:
+#         # Finding the middle of the array
+#         mid = (left + right) // 2
+
+#         # Submit tasks to thread pool for sorting the two halves
+#         left_future = executor.submit(merge_sort_helper, arr, left, mid, executor)
+#         right_future = executor.submit(merge_sort_helper, arr, mid + 1, right, executor)
+
+#         # Wait for tasks to complete
+#         left_future.result()
+#         right_future.result()
+
+#         # Merge the sorted halves
+#         merge(arr, left, mid, right)
